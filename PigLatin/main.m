@@ -10,8 +10,13 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        NSString *myString = @"Hello my name is Aaron I live on fifteenth street";
+        SEL pigLatin = @selector(stringByPigLatinization);
+        if([myString respondsToSelector:pigLatin]){
+            myString = [myString performSelector:pigLatin];
+        }
+        
+        NSLog(@"%@", myString);
     }
     return 0;
 }
